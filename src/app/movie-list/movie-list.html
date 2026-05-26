@@ -1,0 +1,40 @@
+<h1 class="movies-title">
+  Movies
+</h1>
+
+<ul class="movies-grid">
+
+  @for(movie of movies(); track movie.id){
+
+    <li class="movie-card">
+
+      <a
+        [routerLink]="['/movies', movie.id]"
+        class="movie-link"
+      >
+
+        <img
+          [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
+          [alt]="movie.title"
+          class="movie-image"
+        >
+
+        <h2 class="movie-name">
+          {{ movie.title }}
+        </h2>
+
+      </a>
+
+      <p class="movie-rating">
+        ⭐ {{ movie.vote_average }}
+      </p>
+
+      <p class="movie-release">
+        Release: {{ movie.release_date }}
+      </p>
+
+    </li>
+
+  }
+
+</ul>
